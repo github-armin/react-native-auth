@@ -1,21 +1,25 @@
-import React, { Component, View } from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase';
 import {
   Container,
   Header,
   Body,
   Content,
+  Card,
   Text,
   Button,
   Form,
   Item,
   Input,
-  Label
+  Label,
+  View
 } from 'native-base';
 
 const styles = {
   wrapper: {
-    padding: 20
+    padding: 10,
+    marginLeft: 20,
+    marginRight: 20
   },
 };
 
@@ -40,7 +44,7 @@ class App extends Component {
           </Body>
         </Header>
         <Content>
-          <View style={styles.wrapper}>
+          <Card style={styles.wrapper}>
             <Form>
               <Item inlineLabel>
                 <Label>Username</Label>
@@ -54,7 +58,7 @@ class App extends Component {
             <Button block info>
               <Text>Login</Text>
             </Button>
-          </View>
+          </Card>
         </Content>
       </Container>
     );
