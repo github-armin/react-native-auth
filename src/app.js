@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component, View } from 'react';
 import firebase from 'firebase';
 import {
   Container,
   Header,
-  Content,
-  Card,
-  CardItem,
   Body,
+  Content,
   Text,
-  Left,
-  Right,
-  Thumbnail,
   Button,
-  Icon
+  Form,
+  Item,
+  Input,
+  Label
 } from 'native-base';
+
+const styles = {
+  wrapper: {
+    padding: 20
+  },
+};
 
 class App extends Component {
   componentWillMount() {
@@ -32,20 +35,27 @@ class App extends Component {
     return (
       <Container>
         <Header>
-          <Left>
-            <Button transparent>
-              <Icon name="arrow-back" />
-            </Button>
-          </Left>
           <Body>
-            <Title>Header</Title>
+            <Text>Auth</Text>
           </Body>
-          <Right>
-            <Button transparent>
-              <Icon name="menu" />
-            </Button>
-          </Right>
         </Header>
+        <Content>
+          <View style={styles.wrapper}>
+            <Form>
+              <Item inlineLabel>
+                <Label>Username</Label>
+                <Input />
+              </Item>
+              <Item inlineLabel last>
+                <Label>Password</Label>
+                <Input />
+              </Item>
+            </Form>
+            <Button block info>
+              <Text>Login</Text>
+            </Button>
+          </View>
+        </Content>
       </Container>
     );
   }
