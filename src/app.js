@@ -14,12 +14,14 @@ import {
   Label,
   View
 } from 'native-base';
+import LoginForm from './components/LoginForm';
 
 const styles = {
   wrapper: {
     padding: 10,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    marginTop: 20
   },
 };
 
@@ -44,21 +46,7 @@ class App extends Component {
           </Body>
         </Header>
         <Content>
-          <Card style={styles.wrapper}>
-            <Form>
-              <Item inlineLabel>
-                <Label>Username</Label>
-                <Input />
-              </Item>
-              <Item inlineLabel last>
-                <Label>Password</Label>
-                <Input />
-              </Item>
-            </Form>
-            <Button block info>
-              <Text>Login</Text>
-            </Button>
-          </Card>
+          <LoginForm />
         </Content>
       </Container>
     );
