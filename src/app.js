@@ -45,9 +45,9 @@ class App extends Component {
             <Text>Auth</Text>
           </Body>
         </Header>
-        <Content>
+        <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
           <LoginForm />
-        </Content>
+        </View>
       </Container>
     );
   }

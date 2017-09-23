@@ -19,7 +19,11 @@ const styles = {
   loginFormWrapper: {
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 20
+    marginTop: 20,
+    alignItems: 'stretch',
+    flex: 1,
+    flexDirection: 'column'
+
   },
   emailWrapper: {
     paddingLeft: 0,
@@ -34,7 +38,8 @@ const styles = {
     marginTop: 20
   },
   buttonMargin: {
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 50
   }
 };
 
@@ -43,7 +48,10 @@ class LoginForm extends Component {
 
   onButtonPress() {
     const { email, password } = this.state;
-    firebase.auth().signInWithEmailAndPassword(email, password);
+    firebase.auth().signInWithEmailAndPassword(email, password)
+            .catch(() => {
+              alert('Something went wrong...')
+            });
   }
 
   render() {
