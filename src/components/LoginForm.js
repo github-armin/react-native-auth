@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import firebase from 'firebase';
 import {
   Container,
@@ -40,6 +41,10 @@ const styles = {
   buttonMargin: {
     marginTop: 20,
     marginBottom: 50
+  },
+  logo: {
+    alignItems: 'stretch',
+    flexDirection: 'row'
   }
 };
 
@@ -57,6 +62,10 @@ class LoginForm extends Component {
   render() {
     return (
       <View style={styles.loginFormWrapper}>
+        <Image
+          style={styles.logo}
+          source={require('../images/logo1.png')}
+        />
         <Form>
           <Item>
             <Input
