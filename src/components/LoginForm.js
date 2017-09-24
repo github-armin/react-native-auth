@@ -43,8 +43,14 @@ const styles = {
     marginBottom: 50
   },
   logo: {
-    alignItems: 'stretch',
-    flexDirection: 'row'
+    height: 250,
+    width: 250,
+  },
+  logoWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 };
 
@@ -62,10 +68,12 @@ class LoginForm extends Component {
   render() {
     return (
       <View style={styles.loginFormWrapper}>
+      <View style={styles.logoWrapper}>
         <Image
           style={styles.logo}
-          source={require('../images/logo1.png')}
+          source={require('../images/logo.png')}
         />
+      </View>
         <Form>
           <Item>
             <Input
