@@ -12,7 +12,10 @@ import {
   Item,
   Input,
   Label,
-  View
+  View,
+  Footer,
+  FooterTab,
+  Icon
 } from 'native-base';
 import LoginForm from './components/LoginForm';
 
@@ -48,6 +51,22 @@ class App extends Component {
         <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
           <LoginForm />
         </View>
+        <Footer>
+          <FooterTab>
+            <Button>
+              <Icon name="apps" />
+            </Button>
+            <Button>
+              <Icon name="camera" />
+            </Button>
+            <Button active>
+              <Icon active name="navigate" />
+            </Button>
+            <Button>
+              <Icon name="person" />
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }
