@@ -38,8 +38,11 @@ const styles = {
     marginRight: 20,
     marginTop: 20
   },
-  buttonMargin: {
+  loginButtonMargin: {
     marginTop: 20,
+    marginBottom: 15
+  },
+  forgotButtonMargin: {
     marginBottom: 50
   },
   logo: {
@@ -97,10 +100,13 @@ class LoginForm extends Component {
         <Button
           block
           info
-          style={styles.buttonMargin}
+          style={styles.loginButtonMargin}
           onPress={this.onButtonPress.bind(this)}
         >
           <Text>Login</Text>
+        </Button>
+        <Button style={styles.forgotButtonMargin} transparent>
+          <Text>Forgot your password?</Text>
         </Button>
       </View>
     )

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import {
   Container,
-  Header,
   Body,
   Content,
   Card,
@@ -17,7 +16,10 @@ import {
   FooterTab,
   Icon
 } from 'native-base';
+import AppHeader from './components/AppHeader';
 import LoginForm from './components/LoginForm';
+import FooterTabs from './components/FooterTabs';
+
 
 const styles = {
   wrapper: {
@@ -43,30 +45,11 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <Header>
-          <Body>
-            <Text>Auth</Text>
-          </Body>
-        </Header>
+        <AppHeader />
         <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
           <LoginForm />
         </View>
-        <Footer>
-          <FooterTab>
-            <Button>
-              <Icon name="apps" />
-            </Button>
-            <Button>
-              <Icon name="camera" />
-            </Button>
-            <Button active>
-              <Icon active name="navigate" />
-            </Button>
-            <Button>
-              <Icon name="person" />
-            </Button>
-          </FooterTab>
-        </Footer>
+        <FooterTabs />
       </Container>
     );
   }
