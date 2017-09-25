@@ -18,6 +18,7 @@ import {
 } from 'native-base';
 import AppHeader from './components/AppHeader';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import FooterTabs from './components/FooterTabs';
 
 
@@ -31,6 +32,8 @@ const styles = {
 };
 
 class App extends Component {
+  state = { selectedTab: 'login' };
+
   componentWillMount() {
     firebase.initializeApp({
       apiKey: 'AIzaSyBWvLnlx1iND-y7FSEtir5AomgBRutSBkI',
@@ -42,12 +45,24 @@ class App extends Component {
     });
   }
 
+  renderSelectedTab () {
+      switch (this.state.selectedTab) {
+        case 'login':
+          return (<LoginForm />);
+          break;
+        case 'register':
+          return (<RegisterForm />);
+          break;
+        default:
+      }
+    }
+
   render() {
     return (
       <Container>
         <AppHeader />
         <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
-          <LoginForm />
+          {this.renderSelectedTab()}
         </View>
         <FooterTabs />
       </Container>

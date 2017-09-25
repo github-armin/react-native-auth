@@ -17,7 +17,7 @@ import {
 } from 'native-base';
 
 const styles = {
-  loginFormWrapper: {
+  registerFormWrapper: {
     paddingLeft: 20,
     paddingRight: 20,
     marginTop: 20,
@@ -38,7 +38,7 @@ const styles = {
     marginRight: 20,
     marginTop: 20
   },
-  loginButtonMargin: {
+  registerButtonMargin: {
     marginTop: 20,
     marginBottom: 15
   },
@@ -57,10 +57,10 @@ const styles = {
   }
 };
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   state = { email: '', password: '' };
 
-  onLoginPress() {
+  onRegisterPress() {
     const { email, password } = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password)
             .catch(() => {
@@ -70,7 +70,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <View style={styles.loginFormWrapper}>
+      <View style={styles.registerFormWrapper}>
       <View style={styles.logoWrapper}>
         <Image
           style={styles.logo}
@@ -92,7 +92,6 @@ class LoginForm extends Component {
               placeholder="Password"
               value={this.state.password}
               onChangeText={password => this.setState({ password })}
-              autoCorrect={false}
               secureTextEntry
             />
           </Item>
@@ -100,17 +99,14 @@ class LoginForm extends Component {
         <Button
           block
           info
-          style={styles.loginButtonMargin}
-          onPress={this.onLoginPress.bind(this)}
+          style={styles.registerButtonMargin}
+          onPress={this.onRegisterPress.bind(this)}
         >
-          <Text>Login</Text>
-        </Button>
-        <Button style={styles.forgotButtonMargin} transparent>
-          <Text>Forgot your password?</Text>
+          <Text>Register</Text>
         </Button>
       </View>
     )
   }
 }
 
-export default LoginForm;
+export default RegisterForm;
