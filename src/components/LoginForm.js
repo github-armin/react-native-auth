@@ -69,7 +69,7 @@ class LoginForm extends Component {
     const { email, password } = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password)
             .catch((e) => {
-              this.setState({ error: e})
+              this.setState({ error: e['message'] })
             });
   }
 
@@ -102,7 +102,7 @@ class LoginForm extends Component {
             />
           </Item>
         </Form>
-        <Text style={styles.errorText}>{this.state.error['message']}</Text>
+        <Text style={styles.errorText}>{this.state.error}</Text>
         <Button
           block
           info
