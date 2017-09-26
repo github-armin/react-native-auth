@@ -40,7 +40,7 @@ const styles = {
   },
   registerButtonMargin: {
     marginTop: 20,
-    marginBottom: 15
+    marginBottom: 110
   },
   forgotButtonMargin: {
     marginBottom: 50

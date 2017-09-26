@@ -54,17 +54,22 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  errorText: {
+    fontSize: 15,
+    color: 'red',
+    height: 35
   }
 };
 
 class LoginForm extends Component {
-  state = { email: '', password: '' };
+  state = { email: '', password: '', error: '' };
 
   onLoginPress() {
     const { email, password } = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password)
-            .catch(() => {
-              alert('Something went wrong...')
+            .catch((e) => {
+              this.setState({ error: e})
             });
   }
 
@@ -82,21 +87,22 @@ class LoginForm extends Component {
             <Input
               placeholder="Email"
               value={this.state.email}
-              onChangeText={email => this.setState({ email })}
+              onChangeText={email => this.setState({ email, error: '' })}
               autoCorrect={false}
               autoCapitalize={'none'}
             />
           </Item>
-          <Item>
+          <Item style={{ marginBottom: 15 }}>
             <Input
               placeholder="Password"
               value={this.state.password}
-              onChangeText={password => this.setState({ password })}
+              onChangeText={password => this.setState({ password, error: '' })}
               autoCorrect={false}
               secureTextEntry
             />
           </Item>
         </Form>
+        <Text style={styles.errorText}>{this.state.error['message']}</Text>
         <Button
           block
           info
