@@ -13,7 +13,8 @@ import {
   Item,
   Input,
   Label,
-  View
+  View,
+  Spinner
 } from 'native-base';
 
 const styles = {
@@ -63,12 +64,22 @@ const styles = {
 };
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '' };
+  state = {
+    email: '',
+    password: '',
+    error: '',
+    loginButtonDisabled: false,
+    loginButtonContent: <Text>Login</Text>
+  };
 
   onLoginPress() {
+    this.setState({ loginButtonDisabled: true });
+    this.setState({ loginButtonContent: <Spinner color='white' /> })
     const { email, password } = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password)
             .catch((e) => {
+              this.setState({ loginButtonContent: <Text>Login</Text> });
+              this.setState({ loginButtonDisabled: false });
               this.setState({ error: e['message'] })
             });
   }
@@ -108,8 +119,9 @@ class LoginForm extends Component {
           info
           style={styles.loginButtonMargin}
           onPress={this.onLoginPress.bind(this)}
+          disabled={this.state.loginButtonDisabled}
         >
-          <Text>Login</Text>
+          {this.state.loginButtonContent}
         </Button>
         <Button style={styles.forgotButtonMargin} transparent>
           <Text>Forgot your password?</Text>
