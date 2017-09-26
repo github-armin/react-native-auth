@@ -58,11 +58,11 @@ const styles = {
 };
 
 class RegisterForm extends Component {
-  state = { email: '', password: '' };
+  state = { email: '', password: '', error: '' };
 
   onRegisterPress() {
     const { email, password } = this.state;
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(() => {
               alert('Something went wrong...')
             });
