@@ -47,8 +47,8 @@ const styles = {
     marginBottom: 50
   },
   logo: {
-    height: 250,
-    width: 250,
+    height: 150,
+    width: 150,
   },
   logoWrapper: {
     flex: 1,
@@ -108,7 +108,6 @@ class LoginForm extends Component {
               placeholder="Password"
               value={this.state.password}
               onChangeText={password => this.setState({ password, error: '' })}
-              autoCorrect={false}
               secureTextEntry
             />
           </Item>

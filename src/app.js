@@ -46,16 +46,16 @@ class App extends Component {
   }
 
   renderSelectedTab () {
-      switch (this.state.selectedTab) {
-        case 'login':
-          return (<LoginForm />);
-          break;
-        case 'register':
-          return (<RegisterForm />);
-          break;
-        default:
-      }
+    switch (this.state.selectedTab) {
+      case 'login':
+        return (<LoginForm />);
+        break;
+      case 'register':
+        return (<RegisterForm />);
+        break;
+      default:
     }
+  }
 
   render() {
     return (
@@ -64,7 +64,22 @@ class App extends Component {
         <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
           {this.renderSelectedTab()}
         </View>
-        <FooterTabs />
+        <Footer>
+          <FooterTab>
+            <Button
+              active={this.state.selectedTab==='login'}
+              onPress={() => this.setState({selectedTab: 'login'})}
+            >
+              <Text>Login</Text>
+            </Button>
+            <Button
+              active={this.state.selectedTab==='register'}
+              onPress={() => this.setState({selectedTab: 'register'})}
+            >
+              <Text>Register</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }

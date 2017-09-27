@@ -46,19 +46,30 @@ const styles = {
     marginBottom: 50
   },
   logo: {
-    height: 250,
-    width: 250,
+    height: 150,
+    width: 150,
   },
   logoWrapper: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  errorText: {
+    fontSize: 15,
+    color: 'red',
+    height: 50
   }
 };
 
 class RegisterForm extends Component {
-  state = { email: '', password: '', error: '' };
+  state = {
+    email: '',
+    password: '',
+    error: '',
+    registerButtonDisabled: false,
+    registerButtonContent: <Text>Register</Text>
+  };
 
   onRegisterPress() {
     const { email, password } = this.state;
@@ -82,7 +93,7 @@ class RegisterForm extends Component {
             <Input
               placeholder="Email"
               value={this.state.email}
-              onChangeText={email => this.setState({ email })}
+              onChangeText={email => this.setState({ email, error: '' })}
               autoCorrect={false}
               autoCapitalize={'none'}
             />
@@ -91,18 +102,20 @@ class RegisterForm extends Component {
             <Input
               placeholder="Password"
               value={this.state.password}
-              onChangeText={password => this.setState({ password })}
+              onChangeText={password => this.setState({ password, error: '' })}
               secureTextEntry
             />
           </Item>
         </Form>
+        <Text style={styles.errorText}>{this.state.error}</Text>
         <Button
           block
           info
           style={styles.registerButtonMargin}
           onPress={this.onRegisterPress.bind(this)}
+          disabled={this.state.registerButtonDisabled}
         >
-          <Text>Register</Text>
+          {this.state.registerButtonContent}
         </Button>
       </View>
     )
