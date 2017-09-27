@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import firebase from 'firebase';
 import {
   Container,
@@ -28,6 +29,16 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 20
+  },
+  logo: {
+    height: 150,
+    width: 150,
+  },
+  logoWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 
@@ -61,9 +72,15 @@ class App extends Component {
     return (
       <Container>
         <AppHeader />
-        <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
-          {this.renderSelectedTab()}
-        </View>
+          <View style={styles.logoWrapper}>
+            <Image
+              style={styles.logo}
+              source={require('./images/logo.png')}
+            />
+          </View>
+          <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
+            {this.renderSelectedTab()}
+          </View>
         <Footer>
           <FooterTab>
             <Button

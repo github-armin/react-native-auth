@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
 import firebase from 'firebase';
 import {
   Container,
@@ -46,16 +45,6 @@ const styles = {
   forgotButtonMargin: {
     marginBottom: 50
   },
-  logo: {
-    height: 150,
-    width: 150,
-  },
-  logoWrapper: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   errorText: {
     fontSize: 15,
     color: 'red',
@@ -88,12 +77,6 @@ class RegisterForm extends Component {
   render() {
     return (
       <View style={styles.registerFormWrapper}>
-      <View style={styles.logoWrapper}>
-        <Image
-          style={styles.logo}
-          source={require('../images/logo.png')}
-        />
-      </View>
         <Form>
           <Item>
             <Input
