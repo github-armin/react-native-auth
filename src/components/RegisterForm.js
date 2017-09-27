@@ -13,7 +13,8 @@ import {
   Item,
   Input,
   Label,
-  View
+  View,
+  Spinner
 } from 'native-base';
 
 const styles = {
@@ -36,7 +37,7 @@ const styles = {
     paddingLeft: 0,
     marginLeft: 0,
     marginRight: 20,
-    marginTop: 20
+    marginTop: 0
   },
   registerButtonMargin: {
     marginTop: 20,
@@ -58,7 +59,8 @@ const styles = {
   errorText: {
     fontSize: 15,
     color: 'red',
-    height: 50
+    height: 35,
+    marginTop: 15
   }
 };
 
@@ -72,10 +74,14 @@ class RegisterForm extends Component {
   };
 
   onRegisterPress() {
+    this.setState({ registerButtonDisabled: true });
+    this.setState({ registerButtonContent: <Spinner color='white' /> })
     const { email, password } = this.state;
     firebase.auth().createUserWithEmailAndPassword(email, password)
-            .catch(() => {
-              alert('Something went wrong...')
+            .catch((e) => {
+              this.setState({ registerButtonContent: <Text>Register</Text> });
+              this.setState({ registerButtonDisabled: false });
+              this.setState({ error: e['message'] });
             });
   }
 

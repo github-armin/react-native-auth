@@ -80,7 +80,7 @@ class LoginForm extends Component {
             .catch((e) => {
               this.setState({ loginButtonContent: <Text>Login</Text> });
               this.setState({ loginButtonDisabled: false });
-              this.setState({ error: e['message'] })
+              this.setState({ error: e['message'] });
             });
   }
 
