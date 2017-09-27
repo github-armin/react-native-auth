@@ -67,11 +67,16 @@ class RegisterForm extends Component {
     this.setState({ registerButtonContent: <Spinner color='white' /> })
     const { email, password } = this.state;
     firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(this.onRegisterSuccess.bind(this))
             .catch((e) => {
               this.setState({ registerButtonContent: <Text>Register</Text> });
               this.setState({ registerButtonDisabled: false });
               this.setState({ error: e['message'] });
             });
+  }
+
+  onRegisterSuccess() {
+    this.setState({ registerButtonContent: <Text>👍🏽</Text> });
   }
 
   render() {

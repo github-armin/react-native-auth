@@ -66,11 +66,16 @@ class LoginForm extends Component {
     this.setState({ loginButtonContent: <Spinner color='white' /> })
     const { email, password } = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(this.onLoginSuccess.bind(this))
             .catch((e) => {
               this.setState({ loginButtonContent: <Text>Login</Text> });
               this.setState({ loginButtonDisabled: false });
               this.setState({ error: e['message'] });
             });
+  }
+
+  onLoginSuccess() {
+    this.setState({ loginButtonContent: <Text>👍🏽</Text> });
   }
 
   render() {
