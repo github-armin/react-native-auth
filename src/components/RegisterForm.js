@@ -15,43 +15,8 @@ import {
   View,
   Spinner
 } from 'native-base';
-
-const styles = {
-  registerFormWrapper: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    marginTop: 20,
-    alignItems: 'stretch',
-    flex: 1,
-    flexDirection: 'column'
-
-  },
-  emailWrapper: {
-    paddingLeft: 0,
-    marginLeft: 0,
-    marginRight: 20,
-    marginTop: 20
-  },
-  passwordWrapper: {
-    paddingLeft: 0,
-    marginLeft: 0,
-    marginRight: 20,
-    marginTop: 0
-  },
-  registerButtonMargin: {
-    marginTop: 20,
-    marginBottom: 110
-  },
-  forgotButtonMargin: {
-    marginBottom: 50
-  },
-  errorText: {
-    fontSize: 15,
-    color: 'red',
-    height: 35,
-    marginTop: 15
-  }
-};
+import { RegisterStyles } from '../styles/RegisterStyles';
+const { wrapper logo, logoWrapper, registerFormWrapper, emailWrapper, passwordWrapper, registerButtonMargin, errorText } = RegisterStyles;
 
 class RegisterForm extends Component {
   state = {
@@ -81,7 +46,7 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <View style={styles.registerFormWrapper}>
+      <View style={registerFormWrapper}>
         <Form>
           <Item>
             <Input
@@ -101,11 +66,11 @@ class RegisterForm extends Component {
             />
           </Item>
         </Form>
-        <Text style={styles.errorText}>{this.state.error}</Text>
+        <Text style={errorText}>{this.state.error}</Text>
         <Button
           block
           info
-          style={styles.registerButtonMargin}
+          style={registerButtonMargin}
           onPress={this.onRegisterPress.bind(this)}
           disabled={this.state.registerButtonDisabled}
         >

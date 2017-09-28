@@ -15,42 +15,8 @@ import {
   View,
   Spinner
 } from 'native-base';
-
-const styles = {
-  loginFormWrapper: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    marginTop: 20,
-    alignItems: 'stretch',
-    flex: 1,
-    flexDirection: 'column'
-
-  },
-  emailWrapper: {
-    paddingLeft: 0,
-    marginLeft: 0,
-    marginRight: 20,
-    marginTop: 20
-  },
-  passwordWrapper: {
-    paddingLeft: 0,
-    marginLeft: 0,
-    marginRight: 20,
-    marginTop: 20
-  },
-  loginButtonMargin: {
-    marginTop: 20,
-    marginBottom: 15
-  },
-  forgotButtonMargin: {
-    marginBottom: 50
-  },
-  errorText: {
-    fontSize: 15,
-    color: 'red',
-    height: 35
-  }
-};
+import { LoginStyles } from '../styles/LoginStyles';
+const { wrapper logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, errorText } = LoginStyles;
 
 class LoginForm extends Component {
   state = {
@@ -80,7 +46,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <View style={styles.loginFormWrapper}>
+      <View style={loginFormWrapper}>
         <Form>
           <Item>
             <Input
@@ -100,11 +66,11 @@ class LoginForm extends Component {
             />
           </Item>
         </Form>
-        <Text style={styles.errorText}>{this.state.error}</Text>
+        <Text style={errorText}>{this.state.error}</Text>
         <Button
           block
           info
-          style={styles.loginButtonMargin}
+          style={loginButtonMargin}
           onPress={this.onLoginPress.bind(this)}
           disabled={this.state.loginButtonDisabled}
         >
