@@ -19,7 +19,7 @@ import {
 } from 'native-base';
 import LoginForm from '../components/LoginForm';
 import { LoginStyles } from '../styles/LoginStyles';
-const { wrapper logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, forgotButtonMargin, errorText } = LoginStyles;
+const { wrapper, logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, forgotButtonMargin, errorText } = LoginStyles;
 
 class LoginScreen extends Component {
   render() {
@@ -30,7 +30,7 @@ class LoginScreen extends Component {
             <View style={logoWrapper}>
               <Image
                 style={logo}
-                source={require('./images/logo.png')}
+                source={require('../images/logo.png')}
               />
             </View>
             <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
@@ -43,4 +43,8 @@ class LoginScreen extends Component {
   }
 }
 
-export default App;
+LoginScreen.navigationOptions = {
+  title: 'Login'
+}
+
+export default LoginScreen;

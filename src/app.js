@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { Container, View } from 'native-base';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import { TabNavigator } from 'react-navigation';
 
 class App extends Component {
   componentWillMount() {
@@ -18,14 +19,20 @@ class App extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
-      <Container>
+      <Container navigation={ navigation }>
         <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>
-          // load tabbed screens here
+          <LoginScreen />
         </View>
       </Container>
     );
   }
 }
 
-export default App;
+const AppNavigator = TabNavigator({
+  Login: { screen: LoginScreen },
+  Register: { screen: RegisterScreen },
+});
+
+export default AppNavigator;

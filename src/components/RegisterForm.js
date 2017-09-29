@@ -11,12 +11,11 @@ import {
   Form,
   Item,
   Input,
-  Label,
   View,
   Spinner
 } from 'native-base';
 import { RegisterStyles } from '../styles/RegisterStyles';
-const { wrapper logo, logoWrapper, registerFormWrapper, emailWrapper, passwordWrapper, registerButtonMargin, errorText } = RegisterStyles;
+const { wrapper, logo, logoWrapper, registerFormWrapper, emailWrapper, passwordWrapper, registerButtonMargin, errorText } = RegisterStyles;
 
 class RegisterForm extends Component {
   state = {

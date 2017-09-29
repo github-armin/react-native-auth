@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import {
-  Container,
-  Header,
-  Body,
-  Content,
-  Card,
-  Text,
-  Button,
-  Form,
-  Item,
-  Input,
-  Label,
-  View,
-  Spinner
-} from 'native-base';
+import { Container, View, Image } from 'native-base';
 import RegisterForm from '../components/RegisterForm';
 import { RegisterStyles } from '../styles/RegisterStyles';
-const { wrapper logo, logoWrapper, registerFormWrapper, emailWrapper, passwordWrapper, registerButtonMargin, errorText } = RegisterStyles;
+const { logo, logoWrapper } = RegisterStyles;
 
 class RegisterScreen extends Component {
   render() {
@@ -28,7 +14,7 @@ class RegisterScreen extends Component {
             <View style={logoWrapper}>
               <Image
                 style={logo}
-                source={require('./images/logo.png')}
+                source={require('../images/logo.png')}
               />
             </View>
             <View style={{alignItems: 'flex-end', flex: 1, flexDirection: 'row'}}>

@@ -16,7 +16,7 @@ import {
   Spinner
 } from 'native-base';
 import { LoginStyles } from '../styles/LoginStyles';
-const { wrapper logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, errorText } = LoginStyles;
+const { wrapper, logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, errorText, forgotButtonMargin } = LoginStyles;
 
 class LoginForm extends Component {
   state = {
@@ -76,7 +76,7 @@ class LoginForm extends Component {
         >
           {this.state.loginButtonContent}
         </Button>
-        <Button style={styles.forgotButtonMargin} transparent>
+        <Button style={forgotButtonMargin} transparent>
           <Text>Forgot your password?</Text>
         </Button>
       </View>
