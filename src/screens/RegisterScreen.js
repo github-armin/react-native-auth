@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import firebase from 'firebase';
-import { Container, View, Image } from 'native-base';
+import { Container, View } from 'native-base';
 import RegisterForm from '../components/RegisterForm';
 import { RegisterStyles } from '../styles/RegisterStyles';
 const { logo, logoWrapper } = RegisterStyles;
