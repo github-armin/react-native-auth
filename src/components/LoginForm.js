@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import {
-  Container,
-  Header,
-  Body,
-  Content,
-  Card,
-  Text,
-  Button,
-  Form,
-  Item,
-  Input,
-  Label,
-  View,
-  Spinner
+  Container, Header, Body, Content, Card, Text, Button, Form, Item, Input, Label, View, Spinner
 } from 'native-base';
 import { LoginStyles } from '../styles/LoginStyles';
 const { wrapper, logo, logoWrapper, loginFormWrapper, emailWrapper, passwordWrapper, loginButtonMargin, errorText, forgotButtonMargin } = LoginStyles;
