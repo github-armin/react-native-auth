@@ -33,6 +33,12 @@ class App extends Component {
 const AppNavigator = TabNavigator({
   Login: { screen: LoginScreen },
   Register: { screen: RegisterScreen },
+}, {
+  tabBarPosition: 'bottom',
+  animationEnabled: false,
+  tabBarOptions: {
+    activeTintColor: '#e91e63',
+  },
 });
 
 export default AppNavigator;
