@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import firebase from 'firebase';
 import {
   Container,
   Body,
@@ -44,7 +43,8 @@ class LoginScreen extends Component {
 }
 
 LoginScreen.navigationOptions = {
-  title: 'Login'
+  title: 'Login',
+  tabBarIcon: ({ tintColor }) => <Icon name="user" size={35} color={tintColor} />
 }
 
 export default LoginScreen;
