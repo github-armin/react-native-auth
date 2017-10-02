@@ -44,7 +44,7 @@ class LoginScreen extends Component {
 
 LoginScreen.navigationOptions = {
   title: 'Login',
-  tabBarIcon: ({ tintColor }) => <Icon name="user" size={35} color={tintColor} />
+  //tabBarIcon: ({ tintColor }) => <Icon name="user" size={35} color={tintColor} />
 }
 
 export default LoginScreen;
